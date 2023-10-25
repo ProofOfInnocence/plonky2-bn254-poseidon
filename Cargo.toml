@@ -1,0 +1,32 @@
+[package]
+name = "plonky2-bn254-poseidon"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ark-bn254 = "0.4.0"
+ark-ec = "0.4.2"
+ark-ff = "0.4.2"
+ark-std = "0.4.0"
+num-bigint = "0.4.3"
+num-traits = "0.2"
+rand = "0.8.5"
+num = "0.4.0"
+itertools = "0.10.5"
+anyhow = "1.0.71"
+hex = "0.4.3"
+bitvec = "1"
+rayon = "1.7.0"
+plonky2 = {git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
+plonky2_u32={git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
+plonky2_ecdsa={git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
+starky = {git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
+plonky2-bn254={git="https://github.com/qope/plonky2-bn254.git", rev="d616d57"}
+starky-bn254={git="http://github.com/qope/starky-bn254", rev="2165be0"}
+halo2curves = { git = "https://github.com/privacy-scaling-explorations/halo2curves.git", tag = "0.3.1" }
+halo2_proofs = { git = "https://github.com/privacy-scaling-explorations/halo2.git", tag = "v2022_09_10" }
+poseidon-circuit = { git = "https://github.com/scroll-tech/poseidon-circuit", rev="9fff0c0a4d6d98c03e952c03e2b3810c870d61a2" }
+serde = { version = "1.0.160", features = ["derive"] }
+serde_json = "1.0"
