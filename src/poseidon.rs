@@ -6,7 +6,7 @@ use poseidon_circuit::poseidon::primitives::{P128Pow5T3, Spec};
 
 // use super::arithmetic::{Fr};
 use ark_bn254::Fr;
-use plonky2_bn254::fields::fr_target::FrTarget;
+use super::arithmetic::FrTarget;
 // use halo2_proofs::halo2curves::bn256::Fr;
 use halo2curves::group::ff::PrimeField;
 use num_bigint::BigUint;
@@ -175,7 +175,7 @@ mod tests {
             config::{GenericConfig, PoseidonGoldilocksConfig},
         },
     };
-    use plonky2_bn254::fields::fr_target::FrTarget;
+    use crate::arithmetic::FrTarget;
 
     use crate::poseidon::permute_circuit;
 

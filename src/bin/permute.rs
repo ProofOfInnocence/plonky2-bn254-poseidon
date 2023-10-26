@@ -1,19 +1,21 @@
 use anyhow::Result;
 use ark_bn254::Fr;
 use num_bigint::BigUint;
-use std::time::Instant;
 use plonky2::{
     field::types::PrimeField64,
     iop::witness::PartialWitness,
     plonk::{
         circuit_builder::CircuitBuilder,
-        circuit_data::CircuitConfig,
+        circuit_data::{CircuitConfig, CircuitData},
         config::{GenericConfig, PoseidonGoldilocksConfig},
     },
+    util::serialization::{DefaultGeneratorSerializer, GateSerializer}, hash::hash_types::RichField,
 };
-use plonky2_bn254::fields::fr_target::FrTarget;
-
-use plonky2_bn254_poseidon::poseidon::permute_circuit;
+use plonky2_bn254_poseidon::{arithmetic::FrTarget, poseidon::permute_circuit};
+use std::{
+    marker::PhantomData,
+    time::{Duration, Instant},
+};
 
 fn main() -> Result<()> {
     const D: usize = 2;
@@ -58,6 +60,21 @@ fn main() -> Result<()> {
     dbg!(builder.num_gates()); // 62869
     let builder_build_start = Instant::now();
     let data = builder.build::<C>();
+
+    // let gate_serializer = DefaultGateSerializer;
+    // let generator_serializer = DefaultGeneratorSerializer {
+    //     _phantom: PhantomData::<C>,
+    // };
+
+    // let all_circuits_bytes = data
+    //     .to_bytes(&gate_serializer, &generator_serializer)
+    //     .map_err(|_| anyhow::Error::msg("AllRecursiveCircuits serialization failed."))?;
+
+    // dbg!(
+    //     "AllRecursiveCircuits length: {} bytes",
+    //     all_circuits_bytes.len()
+    // );
+
     let builder_build_duration = builder_build_start.elapsed();
     println!("builder_build_duration: {:?}", builder_build_duration);
     dbg!(data.common.degree_bits()); // 16

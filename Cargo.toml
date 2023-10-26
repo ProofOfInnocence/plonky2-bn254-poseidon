@@ -19,12 +19,10 @@ anyhow = "1.0.71"
 hex = "0.4.3"
 bitvec = "1"
 rayon = "1.7.0"
-plonky2 = {git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
-plonky2_u32={git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
-plonky2_ecdsa={git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
-starky = {git="https://github.com/InternetMaximalism/plonky2", rev="541e127"}
-plonky2-bn254={git="https://github.com/qope/plonky2-bn254.git", rev="d616d57"}
-starky-bn254={git="http://github.com/qope/starky-bn254", rev="2165be0"}
+plonky2_field={ git = "https://github.com/mir-protocol/plonky2", rev = "3de92d9ed1721cec133e4e1e1b3ec7facb756ccf", default-features = false }
+plonky2 = { git = "https://github.com/mir-protocol/plonky2", rev = "3de92d9ed1721cec133e4e1e1b3ec7facb756ccf", default-features = false }
+plonky2_u32 = { git = "https://github.com/cf/plonky2-u32", rev = "5b3cb748be32844ae449c62eae6f08278e4b4911", default-features = false }
+plonky2_ecdsa={ git="https://github.com/cf/plonky2-ecdsa.git", default-features=false}
 halo2curves = { git = "https://github.com/privacy-scaling-explorations/halo2curves.git", tag = "0.3.1" }
 halo2_proofs = { git = "https://github.com/privacy-scaling-explorations/halo2.git", tag = "v2022_09_10" }
 poseidon-circuit = { git = "https://github.com/scroll-tech/poseidon-circuit", rev="9fff0c0a4d6d98c03e952c03e2b3810c870d61a2" }
